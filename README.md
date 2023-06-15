@@ -29,7 +29,7 @@ Before you begin, `cd` to a directory where you would like these new directories
 Check if you have [Anaconda](https://new.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) by executing `conda --version`
 
 * If this fails (you get `"command not found"` or `"conda" is not recognized as an internal or external command`), install Miniconda on [Linux](https://conda.io/projects/conda/en/stable/user-guide/install/linux.html), [Windows](https://conda.io/projects/conda/en/stable/user-guide/install/windows.html), or [Mac](https://conda.io/projects/conda/en/stable/user-guide/install/macos.html). This does not require root/administrator privileges. Allow the installer to initialize the conda environment, unless you know you want to control this manually.​
-* If this succeeds (you get the version number of Anaconda), great. In that case,
+* If `conda --version` succeeds (you get the version number of Anaconda), great. In that case,
   it is still good practice to make sure conda is up to date: execute `conda update conda`.
   If that command fails because you do not have the required permissions (that may happen on a cluster with centralized Anaconda installation),
   we recommend you install your own copy of Miniconda (see previous item) in user space, for instance, in your homedir.
@@ -65,7 +65,7 @@ Try:
 
 `cmake --version`
 
-If this succeeds and returns a version 3.12 or higher, you are good to go. If it fails or returns a lower version, install CMake. To do so with Anaconda, use:
+If this succeeds and returns a version 3.12 or higher, you are good to go. If it fails or returns a lower version, install CMake. To do so with Anaconda,:
 
 `conda install cmake -c conda-forge`
 
@@ -75,7 +75,7 @@ Try:
 
 `nf-config --version`
 
-If this fails, install NetCDF with Fortran support. To do so with Anaconda, use:
+If this fails, install NetCDF with Fortran support. To do so with Anaconda:
 
 `conda install netcdf-fortran -c conda-forge`
 
@@ -127,7 +127,16 @@ make install
 cd ../..
 ```
 
+## Python packages for visualization
+
+Execute:
+
+```
+conda install jupyterlab netcdf4 ipympl -c conda-forge
+pip install pyncview
+```
+
 ## Source code editor
 
 We recommend using a code editor that knows about Fortran and Python.
-If you do not have one yet, you could consider [Visual Studio Code](https://code.visualstudio.com/)
+If you do not have one yet, you could consider [Visual Studio Code](https://code.visualstudio.com/).
