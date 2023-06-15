@@ -6,7 +6,7 @@ installed, and if not, to install it.
 A few things are worth keeping in mind:
 
 * On some systems (in particular HPC clusters), you may need to load additional modules for some software to become available.
-  On these systems, before you try installing anything new, try `module avail` to see whether the software you need is available,
+  On these systems, before you install anything new, try `module avail` to see whether the software you need is available,
   and if so, load it with `module load <MODULENAME>`
 
 * There are generally two ways to install new software components:
@@ -109,8 +109,9 @@ This will create a new directory `gotm` with the source code.
 
 ```bash
 mkdir build
+cd build
 mkdir gotm
-cd build/gotm
+cd gotm
 cmake ../../gotm -DFABM_BASE=../../fabm
 make install
 cd ../..
@@ -120,8 +121,9 @@ cd ../..
 
 ```bash
 mkdir build
+cd build
 mkdir gotm
-cd build/gotm
+cd gotm
 cmake ../../fabm/src/drivers/python
 make install
 cd ../..
