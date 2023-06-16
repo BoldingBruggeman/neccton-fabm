@@ -101,6 +101,21 @@ To clone [the repository with the FABM source code](https://fabm.net/code):
 
 This will create a new directory `fabm` with the source code.
 
+## External biogeochemical models
+
+If you intend to use FABM with biogeochemical models that are not distributed with it, you need to download or clone these separately.
+For instance:
+
+* ERSEM: `git clone https://github.com/pmlmodelling/ersem.git`
+* PISCES: `git clone https://github.com/BoldingBruggeman/fabm-pisces.git`
+
+When you build FABM, you have to point to these external models by specifying `-DFABM_INSTITUTES="<INSTITUTE-NAMES>"`
+in the call to cmake (see below). Here, `<INSTITUTE-NAMES>` is a semicolon-separated list of institute names, which defaults to `akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh`. Each of these names can either be the name of a subdirectory under [`<FABM>/src/models`](https://github.com/fabm-model/fabm/tree/master/src/models) or a name of an external biogeochemical model codebase. For each external codebase, you need to point FABM to the directory with the source code by also specifying `-DFABM_<INSTITUTE>_BASE=<DIR>`. For instance, to build FABM with all internally available models as well as PISCES and ERSEM, you would add arguments:
+
+`-DFABM_INSTITUTES="akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh;pisces" -DFABM_PISCES_BASE=<PISCES-DIR> -DFABM_ERSEM_BASE=<ERSEM-DIR>`
+
+In the instructions below, these additional arguments will be indicated by `<EXTRA-FABM-ARGS>`. There, `<PISCES-DIR>` and `<ERSEM-DIR>` would typically be `../../pisces` and `../../ersem`.
+
 ## GOTM (1D water column model)
 
 To clone [the repository with the GOTM source code](https://github.com/gotm-model/code):
@@ -116,7 +131,7 @@ mkdir build
 cd build
 mkdir gotm
 cd gotm
-cmake ../../gotm -DFABM_BASE=../../fabm
+cmake ../../gotm -DFABM_BASE=../../fabm <EXTRA-FABM-ARGS>
 make install
 cd ../..
 ```
@@ -130,7 +145,7 @@ On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`
 cd build
 mkdir pyfabm
 cd pyfabm
-cmake ../../fabm/src/drivers/python
+cmake ../../fabm/src/drivers/python <EXTRA-FABM-ARGS>
 make install
 cd ../..
 ```
