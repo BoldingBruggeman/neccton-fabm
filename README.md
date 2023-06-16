@@ -19,12 +19,14 @@ A few things are worth keeping in mind:
   or if you are unsure which option is best for you, we recommend installing through Ananconda,
   as that does not make any system-level changes.
 
-We will work a lot in command line terminals. If you are working on Windows, you can open one with the "Command Prompt" (click the Start button and type `cmd`).
+* We will work a lot in command line terminals. If you are working on Windows, you can open one with the "Command Prompt" (click the Start button and type `cmd`).
+
+# Installation
+
+## Start from an empty directory
 
 As part of the installation we will create new directories with source codes and build trees.
 Before you begin, `cd` to a directory where you would like these new directories to be created.
-
-# Installation
 
 ## Anaconda
 
@@ -125,10 +127,9 @@ On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`
 ## Building and installing pyfabm
 
 ```bash
-mkdir build
 cd build
-mkdir gotm
-cd gotm
+mkdir pyfabm
+cd pyfabm
 cmake ../../fabm/src/drivers/python
 make install
 cd ../..
@@ -147,3 +148,14 @@ pip install pyncview
 
 We recommend using a code editor that knows about Fortran and Python.
 If you do not have one yet, you could consider [Visual Studio Code](https://code.visualstudio.com/).
+
+# After source code changes
+
+Revisit the GOTM and pyfabm build directories and rebuild/reinstall:
+
+```
+cd build/gotm
+make install
+cd ../pyfabm
+make install
+```
