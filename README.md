@@ -46,7 +46,7 @@ If that succeeds, activate the new environment:
 
 `conda activate neccton-fabm`
 
-This will prefix your command prompt with `(neccton-fabm)` to show that you are currently in the "neccton-fabm" conda environment.
+This will prefix your command prompt with `(neccton-fabm)` to show that you are currently in the "neccton-fabm" conda environment. Any packages installed in this environment with `conda install ...` will be isolated from the rest of the system. If you ever want to delete this environment at a later stage, you can do so with `conda env remove -n neccton-fabm`.
 
 *In all sections below, we assume you are still in this environment!*
 If you leave it by closing your terminal or executing `conda deactivate`, you will have to repeat `conda activate neccton-fabm` before executing any of the conda commands below.
