@@ -12,7 +12,7 @@ A few things are worth keeping in mind:
   and if so, load it with `module load <MODULENAME>`
 
 * There are generally two ways to install new software components:
-  - at system level through a package manager (e.g., `apt` on Debian/Ubuntu Linux) or official installer
+  - at system level through a package manager (e.g., `apt` on Debian/Ubuntu Linux) or an official installer
   - in user space using Anaconda
 
   Both options are fine. If you are working on a system where you do not have root/administrator permissions,
@@ -117,13 +117,14 @@ For instance:
 
 * ERSEM: `git clone https://github.com/pmlmodelling/ersem.git`
 * PISCES: `git clone https://github.com/BoldingBruggeman/fabm-pisces.git pisces`
+* MIZER: `git clone https://github.com/pmlmodelling/fabm-mizer.git mizer`
 
 When you build FABM, you have to point to these external models by specifying `-DFABM_INSTITUTES="<INSTITUTE-NAMES>"`
-in the call to cmake (see below). Here, `<INSTITUTE-NAMES>` is a semicolon-separated list of institute names, which defaults to `akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh`. Each of these names can either be the name of a subdirectory under [`<FABM>/src/models`](https://github.com/fabm-model/fabm/tree/master/src/models) or a name of an external biogeochemical model codebase. For each external codebase, you need to point FABM to the directory with the source code by also specifying `-DFABM_<INSTITUTE>_BASE=<DIR>`. For instance, to build FABM with all internally available models as well as PISCES and ERSEM, you would add arguments:
+in the call to cmake (see below). Here, `<INSTITUTE-NAMES>` is a semicolon-separated list of institute names, which defaults to `akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh`. Each of these names can either be the name of a subdirectory under [`<FABM>/src/models`](https://github.com/fabm-model/fabm/tree/master/src/models) or a name of an external biogeochemical model codebase. For each external codebase, you need to point FABM to the directory with the source code by also specifying `-DFABM_<INSTITUTE>_BASE=<DIR>`. For instance, to build FABM with all internally available models as well as ERSEM, PISCES and MIZER, you would add arguments:
 
-`-DFABM_INSTITUTES="akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh;pisces" -DFABM_PISCES_BASE=<PISCES-DIR> -DFABM_ERSEM_BASE=<ERSEM-DIR>`
+`-DFABM_INSTITUTES="akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh;pisces;mizer" -DFABM_ERSEM_BASE=<ERSEM-DIR> -DFABM_PISCES_BASE=<PISCES-DIR>  -DFABM_MIZER_BASE=<MIZER-DIR>`
 
-In the instructions below, these additional arguments will be indicated by `<EXTRA-FABM-ARGS>`. There, `<PISCES-DIR>` and `<ERSEM-DIR>` would typically be `../../pisces` and `../../ersem`.
+In the instructions below, these additional arguments will be indicated by `<EXTRA-FABM-ARGS>`. There, `<ERSEM-DIR>`, `<PISCES-DIR>`, and `<MIZER-DIR>` would typically be `../../ersem`, `../../pisces` and `../../mizer`, respectively.
 
 ## GOTM (1D water column model)
 
