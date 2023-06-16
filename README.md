@@ -51,6 +51,15 @@ This will prefix your command prompt with `(neccton-fabm)` to show that you are 
 *In all sections below, we assume you are still in this environment!*
 If you leave it by closing your terminal or executing `conda deactivate`, you will have to repeat `conda activate neccton-fabm` before executing any of the conda commands below.
 
+## Python packages for visualization
+
+Execute:
+
+```
+conda install jupyterlab netcdf4 ipympl -c conda-forge
+pip install pyncview
+```
+
 ## Fortran compiler
 
 On Linux and Mac you will often already have a suitable Fortran compiler installed. Try:
@@ -148,15 +157,6 @@ cd pyfabm
 cmake ../../fabm/src/drivers/python <EXTRA-FABM-ARGS>
 make install
 cd ../..
-```
-
-## Python packages for visualization
-
-Execute:
-
-```
-conda install jupyterlab netcdf4 ipympl -c conda-forge
-pip install pyncview
 ```
 
 ## Source code editor
