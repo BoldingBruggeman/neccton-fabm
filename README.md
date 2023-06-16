@@ -5,7 +5,7 @@ installed, and if not, to install it.
 
 A few things are worth keeping in mind:
 
-* We try to support multiple platforms and different software environments i.e. single user laptops and HPC systems. Foreseeing all possible combinations is tough - so please report back if you find anything unclear - or not working and we will try to make it work.
+* We try to support multiple platforms and different software environments, e.g., laptops, workstations and HPC systems running Linux, Mac or Windows. Foreseeing all possible combinations is tough, so please report back if you find anything unclear or not working. We will try to make it work.
 
 * On some systems (in particular HPC clusters), you may need to load additional modules for some software to become available.
   On these systems, before you install anything new, try `module avail` to see whether the software you need is available,
