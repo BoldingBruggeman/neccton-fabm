@@ -38,7 +38,7 @@ Check if you have [Anaconda](https://new.anaconda.com/products/distribution) or 
 
 Now, create a new conda environment​:
 
-`conda create -n neccton-fabm -c conda-forge`
+`conda create -n neccton-fabm`
 
 If that succeeds, activate the new environment:
 
@@ -110,18 +110,25 @@ This will create a new directory `gotm` with the source code.
 ## Building and installing GOTM-FABM
 
 ```bash
-mkdir -p build/gotm
-cd build/gotm
+mkdir build
+cd build
+mkdir gotm
+cd gotm
 cmake ../../gotm -DFABM_BASE=../../fabm
 make install
 cd ../..
 ```
 
+On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`
+On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`
+
 ## Building and installing pyfabm
 
 ```bash
-mkdir build/fabm
-cd build/fabm
+mkdir build
+cd build
+mkdir gotm
+cd gotm
 cmake ../../fabm/src/drivers/python
 make install
 cd ../..
