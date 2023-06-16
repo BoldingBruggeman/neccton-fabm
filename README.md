@@ -70,7 +70,7 @@ If this succeeds and returns a version 6 or higher, you are good to go. If it fa
 
 `conda install fortran-compiler -c conda-forge`
 
-On Windows, we recommend using [Microsoft Visual Studio Community](https://visualstudio.microsoft.com/) with [Intel Visual Fortran](https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#fortran). Note that you need administrator permissions to install these.
+On Windows, we recommend using [Microsoft Visual Studio Community](https://visualstudio.microsoft.com/) with the [Intel Fortran Compiler](https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#fortran). Note that you need administrator permissions to install these.
 
 ## CMake
 
@@ -116,7 +116,7 @@ If you intend to use FABM with biogeochemical models that are not distributed wi
 For instance:
 
 * ERSEM: `git clone https://github.com/pmlmodelling/ersem.git`
-* PISCES: `git clone https://github.com/BoldingBruggeman/fabm-pisces.git`
+* PISCES: `git clone https://github.com/BoldingBruggeman/fabm-pisces.git pisces`
 
 When you build FABM, you have to point to these external models by specifying `-DFABM_INSTITUTES="<INSTITUTE-NAMES>"`
 in the call to cmake (see below). Here, `<INSTITUTE-NAMES>` is a semicolon-separated list of institute names, which defaults to `akvaplan;au;bb;csiro;ersem;examples;gotm;iow;jrc;msi;nersc;niva;pclake;pml;selma;su;uhh`. Each of these names can either be the name of a subdirectory under [`<FABM>/src/models`](https://github.com/fabm-model/fabm/tree/master/src/models) or a name of an external biogeochemical model codebase. For each external codebase, you need to point FABM to the directory with the source code by also specifying `-DFABM_<INSTITUTE>_BASE=<DIR>`. For instance, to build FABM with all internally available models as well as PISCES and ERSEM, you would add arguments:
