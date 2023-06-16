@@ -108,10 +108,8 @@ This will create a new directory `gotm` with the source code.
 ## Building and installing GOTM-FABM
 
 ```bash
-mkdir build
-cd build
-mkdir gotm
-cd gotm
+mkdir -p build/gotm
+cd build/gotm
 cmake ../../gotm -DFABM_BASE=../../fabm
 make install
 cd ../..
@@ -120,10 +118,8 @@ cd ../..
 ## Building and installing pyfabm
 
 ```bash
-mkdir build
-cd build
-mkdir gotm
-cd gotm
+mkdir build/fabm
+cd build/fabm
 cmake ../../fabm/src/drivers/python
 make install
 cd ../..
