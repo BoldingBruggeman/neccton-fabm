@@ -21,6 +21,11 @@ A few things are worth keeping in mind:
 
 * We will work a lot in command line terminals. If you are working on Windows, you can open one with the "Command Prompt" (click the Start button and type `cmd`).
 
+# Recent changes
+
+* 2023-06-23: also install scipy (to do so separately: `conda install scipy -c conda-forge`)
+* 2023-06-22: added info on installing MIZER
+
 # Installation
 
 ## Start from an empty directory
@@ -56,7 +61,7 @@ If you leave it by closing your terminal or executing `conda deactivate`, you wi
 Execute:
 
 ```
-conda install jupyterlab netcdf4 ipympl -c conda-forge
+conda install jupyterlab netcdf4 ipympl scipy -c conda-forge
 pip install pyncview
 ```
 
