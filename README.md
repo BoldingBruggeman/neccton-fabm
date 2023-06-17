@@ -24,7 +24,7 @@ A few things are worth keeping in mind:
 # Recent changes
 
 * 2023-06-23: also install scipy (to do so separately: `conda install scipy -c conda-forge`)
-* 2023-06-22: added info on installing MIZER
+* 2023-06-22: added [info on installing MIZER](#external-biogeochemical-models)
 
 # Installation
 
@@ -151,8 +151,10 @@ make install
 cd ../..
 ```
 
-On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`
-On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`
+On Windows with Visual Studio/Intel Fortran, replace `make install` with `cmake --build . -t install --config Release`.
+
+On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`.
+On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`.
 
 ## Building and installing pyfabm
 
@@ -164,6 +166,8 @@ cmake ../../fabm/src/drivers/python <EXTRA-FABM-ARGS>
 make install
 cd ../..
 ```
+
+On Windows with Visual Studio/Intel Fortran, replace `make install` with `cmake --build . -t install --config Release`.
 
 ## Source code editor
 
