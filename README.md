@@ -87,7 +87,7 @@ If this succeeds and returns a version 3.12 or higher, you are good to go. If it
 
 `conda install cmake -c conda-forge`
 
-## NetCDF
+## NetCDF (not needed on Windows)
 
 Try:
 
@@ -154,7 +154,7 @@ cd ../..
 On Windows with Visual Studio/Intel Fortran, replace `make install` with `cmake --build . -t install --config Release`.
 
 On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`.
-On Windows, it will be placed in `%LOCALAPPDATA%\bin\gotm.exe`.
+On Windows, it will be placed in `%LOCALAPPDATA%\gotm\bin\gotm.exe`.
 
 ## Building and installing pyfabm
 
