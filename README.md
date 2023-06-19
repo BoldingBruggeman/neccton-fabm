@@ -139,26 +139,10 @@ To clone [the repository with the GOTM source code](https://github.com/gotm-mode
 
 This will create a new directory `gotm` with the source code.
 
-## Building and installing GOTM-FABM
-
-```bash
-mkdir build
-cd build
-mkdir gotm
-cd gotm
-cmake ../../gotm -DFABM_BASE=../../fabm <EXTRA-FABM-ARGS>
-make install
-cd ../..
-```
-
-On Windows with Visual Studio/Intel Fortran, replace `make install` with `cmake --build . -t install --config Release`.
-
-On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`.
-On Windows, it will be placed in `%LOCALAPPDATA%\gotm\bin\gotm.exe`.
-
 ## Building and installing pyfabm
 
 ```bash
+mkdir build
 cd build
 mkdir pyfabm
 cd pyfabm
@@ -169,6 +153,22 @@ cd ../..
 
 On Windows with Visual Studio/Intel Fortran, replace `make install` with `cmake --build . -t install --config Release`.
 
+## Building and installing GOTM-FABM
+
+```bash
+cd build
+mkdir gotm
+cd gotm
+cmake ../../gotm -DFABM_BASE=../../fabm -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX <EXTRA-FABM-ARGS>
+make install
+cd ../..
+```
+
+On Windows with Visual Studio/Intel Fortran, replace `$CONDA_PREFIX` with `%CONDA_PREFIX%`, and `make install` with `cmake --build . -t install --config Release`.
+
+On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`.
+On Windows, it will be placed in `%LOCALAPPDATA%\gotm\bin\gotm.exe`.
+
 ## Source code editor
 
 We recommend using a code editor that knows about Fortran and Python.
@@ -176,11 +176,47 @@ If you do not have one yet, you could consider [Visual Studio Code](https://code
 
 # After source code changes
 
-Revisit the GOTM and pyfabm build directories and rebuild/reinstall:
+Revisit the pyfabm and GOTM build directories and rebuild/reinstall:
 
-```
+```bash
 cd build/gotm
 make install
 cd ../pyfabm
 make install
 ```
+
+On Windows with Visual Studio/Intel Fortran, replace each `make install` with `cmake --build . -t install --config Release`.
+
+# Using FABM
+
+## pyfabm
+
+```bash
+git clone https://github.com/BoldingBruggeman/neccton-fabm.git
+cd neccton-fabm
+jupyter lab
+```
+
+Then wait for a browser window to open, and in the left panel, select one of the Jupyter notebooks (`*.ipynb`)
+
+You can customize various settings in these notebooks, most notaly the biogeochemical model configuration (`fabm_yaml`), which you can point to any yaml file at `<FABMDIR>/testcases`, but also to a testcase from an external biogeochemical model (e.g., `<PISCESDIR>/testcases/fabm-pisces.yaml`)
+
+## GOTM
+
+See instructions on the slide on how to download a GOTM-FABM setup for the site of your choice, starting [here](https://igotm.bolding-bruggeman.com/?key=UJMW5WVD).
+
+After extracting the setup to a directory of your choice (hereafter, `<SETUPDIR>`), first activate all output: open `gotm.yaml` and near the bottom, change the `output/result/variables` section to:
+
+```
+      variables:
+      - source: /*
+```
+
+Now run GOTM:
+
+```bash
+cd <SETUPDIR>
+gotm
+```
+
+If this completes successfully, open the result with `pyncview result.nc`.
