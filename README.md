@@ -167,9 +167,6 @@ cd ../..
 
 On Windows with Visual Studio/Intel Fortran, replace `$CONDA_PREFIX` with `%CONDA_PREFIX%`, and `make install` with `cmake --build . -t install --config Release`.
 
-On Linux and Mac, this will place the gotm executable at `$HOME/local/gotm/bin/gotm`.
-On Windows, it will be placed in `%LOCALAPPDATA%\gotm\bin\gotm.exe`.
-
 ## Source code editor
 
 We recommend using a code editor that knows about Fortran and Python.
