@@ -23,7 +23,7 @@ A few things are worth keeping in mind:
 
 # Recent changes
 
-* 2023-06-20: install GOTM in conda environment (to do so separately, rerun GOTM installation instructions from the cmake command onward)
+* 2023-06-20: install GOTM in conda environment (to do so separately, rerun [GOTM installation instructions](#gotm-1d-water-column-model) from the cmake command onward)
 * 2023-06-17: also install scipy (to do so separately: `conda install scipy -c conda-forge`)
 * 2023-06-16: added [info on installing MIZER](#external-biogeochemical-models)
 
